@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @juntum.nombre %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @juntum.fecha %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @juntum.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_juntum_path(@juntum) %> |
+<%= link_to 'Back', junta_path %>

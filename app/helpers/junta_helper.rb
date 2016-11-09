@@ -1,0 +1,2 @@
+module JuntaHelper
+end

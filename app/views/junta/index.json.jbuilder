@@ -1,0 +1,1 @@
+json.array! @junta, partial: 'junta/juntum', as: :juntum
