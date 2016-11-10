@@ -44,6 +44,9 @@ class ProyectosController < ApplicationController
       if @proyecto.update(proyecto_params)
         format.html { redirect_to @proyecto, notice: 'Proyecto was successfully updated.' }
         format.json { render :show, status: :ok, location: @proyecto }
+
+      # @modificacion = Modificacion.new(:proyecto_id => @proyecto.id, usuario_id => params[:id] )
+
       else
         format.html { render :edit }
         format.json { render json: @proyecto.errors, status: :unprocessable_entity }
@@ -71,4 +74,5 @@ class ProyectosController < ApplicationController
     def proyecto_params
       params.require(:proyecto).permit(:nombre, :fecha_inicio, :fecha_final)
     end
+
 end

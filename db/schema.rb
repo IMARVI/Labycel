@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109205942) do
+ActiveRecord::Schema.define(version: 20161110025947) do
 
   create_table "actividads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
@@ -22,12 +22,28 @@ ActiveRecord::Schema.define(version: 20161109205942) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "actividads_usuarios", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "actividad_id", null: false
+    t.integer "usuario_id",   null: false
+    t.index ["actividad_id", "usuario_id"], name: "index_actividads_usuarios_on_actividad_id_and_usuario_id", unique: true, using: :btree
+    t.index ["actividad_id"], name: "index_actividads_usuarios_on_actividad_id", using: :btree
+    t.index ["usuario_id"], name: "index_actividads_usuarios_on_usuario_id", using: :btree
+  end
+
   create_table "junta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
     t.datetime "fecha"
     t.text     "descripcion", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "junta_usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "juntum_id",  null: false
+    t.integer "usuario_id", null: false
+    t.index ["juntum_id", "usuario_id"], name: "index_junta_usuarios_on_juntum_id_and_usuario_id", unique: true, using: :btree
+    t.index ["juntum_id"], name: "index_junta_usuarios_on_juntum_id", using: :btree
+    t.index ["usuario_id"], name: "index_junta_usuarios_on_usuario_id", using: :btree
   end
 
   create_table "modificacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,6 +60,14 @@ ActiveRecord::Schema.define(version: 20161109205942) do
     t.datetime "fecha_final"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "proyectos_usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "proyecto_id", null: false
+    t.integer "usuario_id",  null: false
+    t.index ["proyecto_id", "usuario_id"], name: "index_proyectos_usuarios_on_proyecto_id_and_usuario_id", unique: true, using: :btree
+    t.index ["proyecto_id"], name: "index_proyectos_usuarios_on_proyecto_id", using: :btree
+    t.index ["usuario_id"], name: "index_proyectos_usuarios_on_usuario_id", using: :btree
   end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
