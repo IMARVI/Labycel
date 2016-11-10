@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104054940) do
+ActiveRecord::Schema.define(version: 20161109205942) do
 
   create_table "actividads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20161104054940) do
     t.string   "contraseña"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "permiso"
+    t.boolean  "estado"
   end
 
 end
