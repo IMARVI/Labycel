@@ -10,5 +10,26 @@
   <%= @usuario.contraseña %>
 </p>
 
+<p>
+  <strong>Permisos:</strong>
+  <% if @usuario.permiso == 1 %>
+      Administrador
+  <%end%>
+  <% if @usuario.permiso == 0 %>
+      Usuario
+  <%end%>
+</p>
+
+
+<p>
+  <strong>Estado:</strong>
+  <% if @usuario.estado == 1 %>
+      Activo
+  <%end%>
+  <% if @usuario.estado == 0 %>
+      Inactivo
+  <%end%>
+</p>
+
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
 <%= link_to 'Back', usuarios_path %>

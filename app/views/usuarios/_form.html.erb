@@ -1,27 +1,38 @@
 <%= form_for(usuario) do |f| %>
-  <% if usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+    <% if usuario.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
-      <ul>
-      <% usuario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% usuario.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-  </div>
+    <div class="field">
+      <%= f.label :contraseña %>
+      <%= f.text_field :contraseña %>
+    </div>
 
-  <div class="field">
-    <%= f.label :contraseña %>
-    <%= f.text_field :contraseña %>
-  </div>
+    <div class="field">
+      <%= f.label("Administrador") %>
+      <%= f.check_box(:permiso) %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label("Estado") %>
+      <%= f.check_box(:estado) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
+
