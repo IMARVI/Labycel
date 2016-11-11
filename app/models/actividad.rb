@@ -1,4 +1,5 @@
 class Actividad < ApplicationRecord
   validates_presence_of :nombre, :descripcion
-  has_and_belongs_to_many :usuarios
+  has_many :actividads_usuarios
+  has_many :usuarios , through: :actividads_usuarios
 end

@@ -1,5 +1,7 @@
 class Juntum < ApplicationRecord
   validates_presence_of :nombre
   validates_presence_of :descripcion
-  has_and_belongs_to_many :usuarios
+
+  has_many :juntum_usuario
+  has_many :usuarios , through: :juntum_usuario
 end

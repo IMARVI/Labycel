@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111003921) do
+ActiveRecord::Schema.define(version: 20161111165847) do
 
   create_table "actividads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 20161111003921) do
     t.datetime "updated_at",                null: false
   end
 
-  create_table "junta_usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "juntum_usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "juntum_id",  null: false
     t.integer "usuario_id", null: false
-    t.index ["juntum_id", "usuario_id"], name: "index_junta_usuarios_on_juntum_id_and_usuario_id", unique: true, using: :btree
-    t.index ["juntum_id"], name: "index_junta_usuarios_on_juntum_id", using: :btree
-    t.index ["usuario_id"], name: "index_junta_usuarios_on_usuario_id", using: :btree
+    t.index ["juntum_id", "usuario_id"], name: "index_juntum_usuarios_on_juntum_id_and_usuario_id", unique: true, using: :btree
+    t.index ["juntum_id"], name: "index_juntum_usuarios_on_juntum_id", using: :btree
+    t.index ["usuario_id"], name: "index_juntum_usuarios_on_usuario_id", using: :btree
   end
 
   create_table "modificacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20161111003921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "permiso"
-    t.integer  "estado"
+    t.boolean  "estado"
   end
 
 end
