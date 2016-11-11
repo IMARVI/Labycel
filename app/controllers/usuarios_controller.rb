@@ -18,8 +18,8 @@ class UsuariosController < ApplicationController
   end
 
   # GET /usuarios/1/edit
- # def edit
-  #end
+  def edit
+  end
 
   # POST /usuarios
   # POST /usuarios.json
@@ -64,6 +64,8 @@ class UsuariosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
+      #puts params[:id].inspect  #imprime el valor id dentro de params array
+
       @usuario = Usuario.find(params[:id])
     end
 
