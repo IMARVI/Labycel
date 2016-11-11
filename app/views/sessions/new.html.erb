@@ -3,7 +3,7 @@
   <%= f.label :nombre %>
   <%= f.text_field :nombre, placeholder: 'Ingresa tu usuario', autofocus: true %>
     <%= f.label :contraseña %>
-    <%= f.text_field :contrasena, placeholder: 'Ingresa tu contraseña', autocomplete: "off" %>
+    <%= f.password_field :contrasena, placeholder: 'Ingresa tu contraseña', autocomplete: "off" %>
   <%= f.submit "log in" %>
 
 <% end %>
