@@ -16,5 +16,8 @@
 .idea/workspace.xml
 .idea/labycel.iml
 
+
+db/schema.rb
+
 # Ignore Byebug command history file.
 .byebug_history
