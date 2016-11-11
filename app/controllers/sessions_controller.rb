@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
       session[:user_id] = usuario.id
       flash[:success] = 'Bienvenido'
-      redirect_to proyecto_path(usuario)
+      redirect_to proyectos_path(usuario)
     else
       flash.now[:danger] = 'Los datos de tu login son incorrectos'
       render 'new'
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nill
+    session[:user_id] = nil
     flash[:sucess] = "Fuera de Sesion"
     redirect_to root_path
 
