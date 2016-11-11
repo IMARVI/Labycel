@@ -1,0 +1,9 @@
+<h1 align="center"> Log in </h1>
+<%= form_for(:sessions, :html => { role: "form"}, url: login_path) do |f| %>
+  <%= f.label :nombre %>
+  <%= f.text_field :nombre, placeholder: 'Ingresa tu usuario', autofocus: true %>
+    <%= f.label :contraseña %>
+    <%= f.text_field :contrasena, placeholder: 'Ingresa tu contraseña', autocomplete: "off" %>
+  <%= f.submit "log in" %>
+
+<% end %>
