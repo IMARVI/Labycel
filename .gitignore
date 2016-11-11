@@ -15,6 +15,7 @@
 !/tmp/.keep
 .idea/workspace.xml
 .idea/labycel.iml
+config/database.yml
 
 # Ignore Byebug command history file.
 .byebug_history
