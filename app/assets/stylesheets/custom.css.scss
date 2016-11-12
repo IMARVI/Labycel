@@ -1,2 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.btn.btn-sm{
+   color: white;
+ }
+
+.usuarioName>a:hover{
+  text-decoration: underline !important;
+  background-color: transparent !important;
+}
+
+.usuarioName {
+  padding: 10px 0px;
+  padding-bottom: 10px;
+  border-bottom: solid #999999 1px;
+  font-size: 2em;
+}
+
+.acciones{
+  padding: 10px 0px;
+}
+
+.userInfo>p{
+  font-size: 1em !important;
+}
+
+.userInfo{
+  padding: 10px 0px;
+}
