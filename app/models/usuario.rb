@@ -12,8 +12,16 @@ class Usuario < ApplicationRecord
   has_many :actividads_usuarios
   has_many :actividads, through: :actividads_usuarios
 
-
-
   has_many :modificacions
+
+  def self.find_by_nombre(nombre)
+   nombre = where(nombre: nombre)
+   if nombre.present?
+     return nombre
+   end
+  end
+
+
  # has_many :proyectos, through: :modificacions
+
 end
