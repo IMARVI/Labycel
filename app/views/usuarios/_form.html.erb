@@ -11,28 +11,42 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :nombre %>
-      <%= f.text_field :nombre %>
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-3">
+            <form class="form-horizontal" role="form">
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <%= f.text_field :nombre, placeholder: 'Nombre', autofocus: true, class:"form-control" %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <%= f.text_field :contraseña, placeholder: 'Contraseña', autocomplete: "off", class:"form-control" %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                <%= f.label("Administrador") %>
+                <%= f.check_box(:permiso) %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-ok-sign"></i></span>
+                <%= f.label("Estado") %>
+                <%= f.check_box(:estado) %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit("Crear usuario",class:'btn btn-sm btn-success ') %>
+                <%= link_to 'Regresar', usuarios_path,class:'btn btn-sm btn-danger ' %>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="field">
-      <%= f.label :contraseña %>
-      <%= f.text_field :contraseña %>
-    </div>
-
-    <div class="field">
-      <%= f.label("Administrador") %>
-      <%= f.check_box(:permiso) %>
-    </div>
-
-    <div class="field">
-      <%= f.label("Estado") %>
-      <%= f.check_box(:estado) %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
 <% end %>
 
