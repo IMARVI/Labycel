@@ -1,0 +1,1 @@
+json.partial! "usuario_proyectos/usuario_proyecto", usuario_proyecto: @usuario_proyecto

@@ -6,8 +6,8 @@ class Usuario < ApplicationRecord
   has_many :juntum_usuarios
   has_many :junta, through: :juntum_usuarios
 
-  has_many :proyectos_usuarios
-  has_many :proyectos, through: :proyectos_usuarios
+  has_many :usuario_proyectos
+  has_many :proyectos, through: :usuario_proyectos
 
   has_many :actividads_usuarios
   has_many :actividads, through: :actividads_usuarios

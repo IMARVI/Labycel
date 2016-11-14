@@ -14,9 +14,16 @@
   </div>
   <% end%>
   <%
-    if @nombre.present? %>
+    if @nombre.present?
+  usuario = Usuario.where(:nombre => params[:nombre])
+  usr = usuario[0]
+  %>
+
   <div id="nombre-lookup-resultados">
     <strong>Encontrado </strong>
+    <%= link_to "Agregar a proyecto", usuario_proyectos_path(user: usr,
+    proyecto: @proyecto), class: 'btn btn-xs btn-success', method: :post %>
+
   </div>
   <%else%>
   <div id = "nombre-lookup-error" >

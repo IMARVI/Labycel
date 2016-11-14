@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @usuario_proyecto.usuario_id %>
+</p>
+
+<p>
+  <strong>Proyecto:</strong>
+  <%= @usuario_proyecto.proyecto_id %>
+</p>
+
+<%= link_to 'Edit', edit_usuario_proyecto_path(@usuario_proyecto) %> |
+<%= link_to 'Back', usuario_proyectos_path %>

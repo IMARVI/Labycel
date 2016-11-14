@@ -9,11 +9,11 @@ init_usuario_lookup = function(){
 
     $('#usuario-lookup-form').on('ajax:error', function(event, xhr, status, error){
         $('#nombre-lookup-resultados').replaceWith(' ');
-        $('#nombre-lookup-error').repaceWith('No existe ese nombre');
+        $('#nombre-lookup-error').replaceWith('No existe ese nombre');
     });
 }
 
 
-$(document).ready(function() {
+$(window).ready(function() {
     init_usuario_lookup();
-})
+});

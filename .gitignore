@@ -15,10 +15,6 @@
 !/tmp/.keep
 .idea/workspace.xml
 .idea/labycel.iml
-config/database.yml
-
-
-db/schema.rb
 
 # Ignore Byebug command history file.
 .byebug_history

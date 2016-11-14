@@ -1,3 +1,0 @@
-class ProyectosUsuarioController < ApplicationController
-
-end
