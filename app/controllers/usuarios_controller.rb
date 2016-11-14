@@ -43,8 +43,9 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Usuario was successfully created.' }
         format.json { render :show, status: :created, location: @usuario }
+        flash[:success] = "Usuario creado"
       else
         format.html { render :new }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
