@@ -24,6 +24,8 @@ class ProyectosController < ApplicationController
   # POST /proyectos
   # POST /proyectos.json
   def create
+    puts params.inspect
+    puts "---------------------"
     @proyecto = Proyecto.new(proyecto_params)
 
     respond_to do |format|

@@ -3,7 +3,7 @@
   <%= form_tag search_usuario_path, remote:true, method: :get, id: 'usuario-lookup-form' do %>
   <div class="form-group row no-padding text-centere col-md.12" >
     <div class="col-md-10 ">
-      <%= text_field_tag :nombre, params[:nombre], placeholder: "Ingrea un nombre",
+      <%= text_field_tag :nombre, params[:nombre], placeholder: "Ingresa un nombre",
       autofocus:true, class:'form-control search-box input-lg'%>
     </div>
     <div class="col-md-2">
@@ -12,7 +12,7 @@
       <%end%>
     </div>
   </div>
-  <% end%>
+  <%end%>
   <%
     if @nombre.present?
   usuario = Usuario.where(:nombre => params[:nombre])
