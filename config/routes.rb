@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :usuario_junta
   resources :usuario_proyectos
   resources :actividads
   resources :proyectos
