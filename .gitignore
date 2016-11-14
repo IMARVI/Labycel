@@ -13,6 +13,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.idea
 .idea/workspace.xml
 .idea/labycel.iml
 
