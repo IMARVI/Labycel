@@ -15,14 +15,13 @@
               <% if usuario.permiso == 1 %>
                   <p><strong>Privilegios:</strong> Administrador</p>
               <%end%>
-              <% if usuario.permiso == 0 %>
+              <% if usuario.permiso != 1 %>
                   <p><strong>Privilegios:</strong> Usuario</p>
               <%end%>
-
               <% if usuario.estado == 1 %>
                   <p><strong>Estado:</strong> Activo</p>
               <%end%>
-              <% if usuario.estado == 0 %>
+              <% if usuario.estado != 1 %>
                   <p><strong>Estado:</strong> Inactivo</p>
               <%end%>
               <p><strong>Contraseña:</strong> <%= usuario.contraseña %></p>
