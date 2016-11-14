@@ -7,6 +7,20 @@ class UsuariosController < ApplicationController
     @usuarios = Usuario.all
   end
 
+  def buscar
+    if params[:nombre]
+      @nombre = Usuario.find_by_nombre(params[:nombre])
+      @nombre ||= Usuario.find_by_nombre(params[:nombre])
+    end
+
+    if @nombre
+      #render json: @nombre
+      render partial:'lookup'
+    else
+      render partial:'lookup'
+    end
+  end
+
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show

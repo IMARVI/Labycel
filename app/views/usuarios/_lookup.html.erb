@@ -1,0 +1,26 @@
+<div id="nombre-lookup">
+<h3>busqueda de usuarios</h3>
+  <%= form_tag search_usuario_path, remote:true, method: :get, id: 'usuario-lookup-form' do %>
+  <div class="form-group row no-padding text-centere col-md.12" >
+    <div class="col-md-10 ">
+      <%= text_field_tag :nombre, params[:nombre], placeholder: "Ingrea un nombre",
+      autofocus:true, class:'form-control search-box input-lg'%>
+    </div>
+    <div class="col-md-2">
+      <%= button_tag(type: :submit, class:"btn tbn-lg btn-success") do %>
+        <i class="fa fa-search"></i> Busqueda de nombre
+      <%end%>
+    </div>
+  </div>
+  <% end%>
+  <%
+    if @nombre.present? %>
+  <div id="nombre-lookup-resultados">
+    <strong>Encontrado </strong>
+  </div>
+  <%else%>
+  <div id = "nombre-lookup-error" >
+    <strong>No Encontrado</strong>
+  </div>
+  <%end%>
+</div>
