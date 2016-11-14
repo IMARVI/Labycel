@@ -22,6 +22,7 @@ class Usuario < ApplicationRecord
   end
 
 
+
  # has_many :proyectos, through: :modificacions
 
 end

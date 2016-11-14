@@ -1,0 +1,2 @@
+class UsuarioJuntum < ApplicationRecord
+end
