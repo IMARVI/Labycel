@@ -16,13 +16,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
           <%if current_user.read_attribute(:permiso)==1%>
-              <li><%= link_to "Usuarios", usuarios_path %></li>
+            <li><%= link_to "Usuarios", usuarios_path %></li>
+            <li><%= link_to "Proyectos", proyectos_path %></li>
+            <li><%= link_to "Juntas", junta_path %></li>
+          <% else %>
+            <li><%= link_to "Mis proyectos", current_user %></li>
+            <li><%= link_to "Mis Juntas", mostrar_juntas_path %></li>
           <% end %>
-
-        <li><%= link_to "Proyectos", proyectos_path %></li>
-        <li><%= link_to "Mis proyectos", current_user %></li>
-        <li><%= link_to "Juntas", junta_path %></li>
-        <li><%= link_to "Mis Juntas", mostrar_juntas_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="unactive"><%= link_to current_user.read_attribute(:nombre), usuario_junta_path%></li>

@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
-  before_action :admin?
+  before_action :admin?, only: [:edit, :update, :destroy]
   # GET /usuarios
   # GET /usuarios.json
   def admin?

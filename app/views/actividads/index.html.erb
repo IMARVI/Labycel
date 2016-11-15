@@ -18,9 +18,9 @@
                 <p><strong>Fecha Final:</strong> <%= actividad.fecha_final %></p>
               </div>
               <div class="btn-group acciones" role="group" aria-label="...">
-                <%= link_to 'Show', actividad, class:"btn btn-sm btn-warning" %>
-                <%= link_to 'Edit', edit_actividad_path(actividad), class:"btn btn-sm btn-primary" %>
-                <%= link_to 'Destroy', actividad, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
+                <%= link_to 'Detalles', actividad, class:"btn btn-sm btn-warning" %>
+                <%= link_to 'Editar', edit_actividad_path(actividad), class:"btn btn-sm btn-primary" %>
+                <%= link_to 'Eliminar', actividad, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
 
     <br>
     <div class="col-xs-6 col-xs-offset-3">
-      <%= link_to 'New Actividad', new_actividad_path, class:"btn btn-sm btn-success center-block" %>
+      <%= link_to 'Nueva Actividad', new_actividad_path, class:"btn btn-sm btn-success center-block" %>
     </div>
 
 

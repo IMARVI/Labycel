@@ -1,9 +1,16 @@
 class JuntaController < ApplicationController
   before_action :set_juntum, only: [:show, :edit, :update, :destroy]
+  before_action :admin?, only: [:index]
   before_action :usuarios_in_forms, only: [:new, :create, :edit, :update]
-
   # GET /junta
   # GET /junta.json
+  def admin?
+    if current_user.read_attribute(:permiso) != 1
+      flash[:danger] = "No tienes persmisos de administrador"
+      redirect_to mostrar_juntas_path
+    end
+  end
+
   def index
     @junta = Juntum.all
   end

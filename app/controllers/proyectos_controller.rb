@@ -1,8 +1,16 @@
 class ProyectosController < ApplicationController
   before_action :set_proyecto, only: [:show, :edit, :update, :destroy]
+  before_action :admin?, only: [:index]
   before_action :usuarios_in_form, only: [:new,:create,:edit,:update]
   # GET /proyectos
   # GET /proyectos.json
+  def admin?
+    if current_user.read_attribute(:permiso) != 1
+      flash[:danger] = "No tienes persmisos de administrador"
+      redirect_to current_user
+    end
+  end
+
   def index
     @proyectos = Proyecto.all
   end
