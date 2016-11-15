@@ -69,8 +69,6 @@ class UsuarioProyectosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_proyecto_params
-      puts params.inspect
-      puts "-----------"
       params.require(:usuario_proyecto).permit(:usuario_id, :proyecto_id)
     end
 end

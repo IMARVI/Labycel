@@ -1,6 +1,6 @@
 class ProyectosController < ApplicationController
   before_action :set_proyecto, only: [:show, :edit, :update, :destroy]
-
+  before_action :usuarios_in_form, only: [:new,:create,:edit,:update]
   # GET /proyectos
   # GET /proyectos.json
   def index
@@ -72,7 +72,11 @@ class ProyectosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proyecto_params
-      params.require(:proyecto).permit(:nombre, :fecha_inicio, :fecha_final)
+      params.require(:proyecto).permit(:nombre, :fecha_inicio, :fecha_final, usuario_ids:[])
+    end
+
+    def usuarios_in_form
+      @usuarios = Usuario.all
     end
 
 end

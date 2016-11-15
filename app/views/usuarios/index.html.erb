@@ -27,8 +27,8 @@
               <p><strong>Contraseña:</strong> <%= usuario.contraseña %></p>
             </div>
             <div class="btn-group acciones" role="group" aria-label="...">
-              <%= link_to 'Edit', edit_usuario_path(usuario), class:"btn btn-sm btn-primary" %>
-              <%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
+              <%= link_to 'Editar', edit_usuario_path(usuario), class:"btn btn-sm btn-primary" %>
+              <%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
             </div>
           </div>
         </div>

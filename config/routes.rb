@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :juntum_usuarios
   resources :usuario_proyectos
+  resources :usuario_junta
   resources :actividads
   resources :proyectos
   resources :junta
@@ -13,5 +15,6 @@ Rails.application.routes.draw do
 
   get 'search_usuario', to: 'usuarios#buscar'
   post 'usuario_proyecto', to: 'usuario_proyectos#create'
+  get 'mostrar_juntas'=>'juntum_usuarios#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
