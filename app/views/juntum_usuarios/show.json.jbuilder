@@ -1,0 +1,1 @@
+json.partial! "juntum_usuarios/juntum_usuario", juntum_usuario: @juntum_usuario

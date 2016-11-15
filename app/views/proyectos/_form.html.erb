@@ -28,9 +28,8 @@
 
     <div style="margin-bottom: 20px" class="input-group">
       <% @usuarios.each do |usuario| %>
-      <%= check_box_tag 'proyecto[usuario_ids][]', usuario.id,
-        @proyecto.usuario_ids.include?(usuario.id), id: dom_id(usuario)%>
-      <%= label_tag dom_id(usuario),(usuario.nombre) %>
+        <%= check_box_tag 'proyecto[usuario_ids][]', usuario.id, @proyecto.usuario_ids.include?(usuario.id), id: dom_id(usuario)%>
+        <%= label_tag dom_id(usuario),(usuario.nombre) %>
       <% end %>
     </div>
 

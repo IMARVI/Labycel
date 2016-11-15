@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114225844) do
+ActiveRecord::Schema.define(version: 20161115020219) do
 
   create_table "actividads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nombre"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20161114225844) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "juntum_usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "juntum_id"
+    t.integer  "usuario_id"
+  end
+
   create_table "modificacions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "proyecto_id"
     t.integer  "usuario_id"
@@ -46,11 +53,12 @@ ActiveRecord::Schema.define(version: 20161114225844) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "usuario_junta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "usuario_id"
-    t.integer  "juntum_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "proyectos_usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "proyecto_id", null: false
+    t.integer "usuario_id",  null: false
+    t.index ["proyecto_id", "usuario_id"], name: "index_proyectos_usuarios_on_proyecto_id_and_usuario_id", unique: true, using: :btree
+    t.index ["proyecto_id"], name: "index_proyectos_usuarios_on_proyecto_id", using: :btree
+    t.index ["usuario_id"], name: "index_proyectos_usuarios_on_usuario_id", using: :btree
   end
 
   create_table "usuario_proyectos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,7 +74,7 @@ ActiveRecord::Schema.define(version: 20161114225844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "permiso"
-    t.boolean  "estado"
+    t.integer  "estado"
   end
 
 end

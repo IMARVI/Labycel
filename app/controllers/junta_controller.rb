@@ -1,6 +1,6 @@
 class JuntaController < ApplicationController
   before_action :set_juntum, only: [:show, :edit, :update, :destroy]
-  before_action :usuarios_in_form, only: [:new, :create, :edit, :update]
+  before_action :usuarios_in_forms, only: [:new, :create, :edit, :update]
 
   # GET /junta
   # GET /junta.json
@@ -71,5 +71,9 @@ class JuntaController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def juntum_params
       params.require(:juntum).permit(:nombre, :fecha, :descripcion, usuario_ids:[])
+    end
+
+    def usuarios_in_forms
+      @usuarios = Usuario.all
     end
 end

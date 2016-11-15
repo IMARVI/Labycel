@@ -1,0 +1,1 @@
+json.array! @juntum_usuarios, partial: 'juntum_usuarios/juntum_usuario', as: :juntum_usuario
