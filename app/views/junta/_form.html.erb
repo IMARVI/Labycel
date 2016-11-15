@@ -1,32 +1,45 @@
 <%= form_for(juntum) do |f| %>
-  <% if juntum.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(juntum.errors.count, "error") %> prohibited this juntum from being saved:</h2>
+    <% if juntum.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(juntum.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
-      <ul>
-      <% juntum.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% juntum.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-xs-7 col-xs-offset-3">
+            <form class="form-horizontal" role="form">
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <%= f.text_field :nombre, placeholder: 'Nombre', autofocus: true, class:"form-control" %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                <%= f.label :fecha %>
+                <%= f.datetime_select :fecha %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
+                <%= f.text_area :nombre, placeholder: 'Descripcion', autofocus: true, class:"form-control" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit("Crear/Actualizar Junta",class:'btn btn-sm btn-success ') %>
+                <%= link_to 'Regresar', junta_path,class:'btn btn-sm btn-danger ' %>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha %>
-    <%= f.datetime_select :fecha %>
-  </div>
-
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

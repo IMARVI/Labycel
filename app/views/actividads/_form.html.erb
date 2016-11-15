@@ -1,43 +1,57 @@
 <%= form_for(actividad) do |f| %>
-  <% if actividad.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(actividad.errors.count, "error") %> prohibited this actividad from being saved:</h2>
+    <% if actividad.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(actividad.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
-      <ul>
-      <% actividad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% actividad.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-xs-7 col-xs-offset-3">
+            <form class="form-horizontal" role="form">
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <%= f.text_field :nombre, placeholder: 'Nombre', autofocus: true, class:"form-control" %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                <%= f.label :fecha_inicio %>
+                <%= f.datetime_select :fecha_inicio %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                <%= f.label :fecha_final %>
+                <%= f.datetime_select :fecha_final %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
+                <%= f.text_area :nombre, placeholder: 'Descripcion', autofocus: true, class:"form-control" %>
+              </div>
+
+              <div style="margin-bottom: 20px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-ok-sign"></i></span>
+                <%= f.label("Estado") %>
+                <%= f.check_box(:estatus) %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit("Crear/Actualizar Actividad",class:'btn btn-sm btn-success ') %>
+                <%= link_to 'Regresar', actividads_path,class:'btn btn-sm btn-danger ' %>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
-  </div>
-
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estatus %>
-    <%= f.check_box :estatus %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_inicio %>
-    <%= f.datetime_select :fecha_inicio %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha_final %>
-    <%= f.datetime_select :fecha_final %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

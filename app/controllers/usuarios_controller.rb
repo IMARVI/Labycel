@@ -1,8 +1,15 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin?
   # GET /usuarios
   # GET /usuarios.json
+  def admin?
+    if current_user.read_attribute(:permiso) != 1
+      flash[:danger] = "No tienes persmisos de administrador"
+      redirect_to proyectos_path
+    end
+  end
+
   def index
     @usuarios = Usuario.all
   end
