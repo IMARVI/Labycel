@@ -1,4 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="page-header">
+    <h1>Mis Juntas</h1>
+  </div>
+  <div class="jumbotron">
 
-<%= link_to 'Edit', edit_juntum_usuario_path(@juntum_usuario) %> |
-<%= link_to 'Back', juntum_usuarios_path %>
+    <% @usuario_juntas.each do |juntum| %>
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="well well-lg">
+              <div class="usuarioName">
+                <%= juntum.nombre %>
+              </div>
+              <div class="userInfo">
+                <p><strong>Fecha:</strong> <%= juntum.fecha %></p>
+                <p><strong>Descripción:</strong> <%= juntum.descripcion %></p>
+
+              </div>
+              <div class="btn-group acciones" role="group" aria-label="...">
+                <%= link_to 'Detalles', juntum_path(juntum), class:"btn btn-sm btn-default" %>
+                <%= link_to 'Editar', edit_juntum_path(juntum), class:"btn btn-sm btn-primary" %>
+                <%= link_to 'Eliminar', juntum, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+    <br>
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= link_to 'Nueva Junta', new_juntum_path, class:"btn btn-sm btn-success center-block" %>
+    </div>
+  </div>
+</div>

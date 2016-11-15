@@ -20,7 +20,9 @@
           <% end %>
 
         <li><%= link_to "Proyectos", proyectos_path %></li>
+        <li><%= link_to "Mis proyectos", current_user %></li>
         <li><%= link_to "Juntas", junta_path %></li>
+        <li><%= link_to "Mis Juntas", mostrar_juntas_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="unactive"><%= link_to current_user.read_attribute(:nombre), usuario_junta_path%></li>

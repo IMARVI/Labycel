@@ -3,8 +3,11 @@ class JuntumUsuariosController < ApplicationController
 
   # GET /juntum_usuarios
   # GET /juntum_usuarios.json
+  helper_method :index
   def index
     @juntum_usuarios = JuntumUsuario.all
+    @usuario = current_user
+    @usuario_juntas = @usuario.junta
   end
 
   # GET /juntum_usuarios/1
