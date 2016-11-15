@@ -36,11 +36,13 @@ class ProyectosController < ApplicationController
 
     respond_to do |format|
       if @proyecto.save
-        format.html { redirect_to @proyecto, notice: 'Proyecto was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Proyecto was successfully created.' }
         format.json { render :show, status: :created, location: @proyecto }
+        flash[:success] = "Proyecto creado"
       else
         format.html { render :new }
         format.json { render json: @proyecto.errors, status: :unprocessable_entity }
+        flash[:danger] = "Error al crear el proyecto"
       end
     end
   end
@@ -52,12 +54,14 @@ class ProyectosController < ApplicationController
       if @proyecto.update(proyecto_params)
         format.html { redirect_to @proyecto, notice: 'Proyecto was successfully updated.' }
         format.json { render :show, status: :ok, location: @proyecto }
+        flash[:success] = "Proyecto actualizado"
 
       # @modificacion = Modificacion.new(:proyecto_id => @proyecto.id, usuario_id => params[:id] )
 
       else
         format.html { render :edit }
         format.json { render json: @proyecto.errors, status: :unprocessable_entity }
+        flash[:danger] = "Error al actualizar el proyecto"
       end
     end
   end
@@ -69,6 +73,7 @@ class ProyectosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to proyectos_url, notice: 'Proyecto was successfully destroyed.' }
       format.json { head :no_content }
+      flash[:success] = "Proyecto eliminado"
     end
   end
 

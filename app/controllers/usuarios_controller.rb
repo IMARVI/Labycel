@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
-  before_action :admin?, only: [:edit, :update, :destroy]
+  before_action :admin?, only: [:index, :edit, :update, :destroy]
   # GET /usuarios
   # GET /usuarios.json
   def admin?
@@ -58,6 +58,7 @@ class UsuariosController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        flash[:danger] = "Error al crear el usuario"
       end
     end
   end
@@ -69,9 +70,11 @@ class UsuariosController < ApplicationController
       if @usuario.update(usuario_params)
         format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
         format.json { render :show, status: :ok, location: @usuario }
+        flash[:success] = "Usuario actualizado"
       else
         format.html { render :edit }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        flash[:danger] = "Error al actualizar el usuario"
       end
     end
   end
@@ -83,6 +86,7 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
       format.json { head :no_content }
+      flash[:success] = "Usuario eliminado"
     end
   end
 

@@ -36,11 +36,13 @@ class JuntaController < ApplicationController
 
     respond_to do |format|
       if @juntum.save
-        format.html { redirect_to @juntum, notice: 'Juntum was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Juntum was successfully created.' }
         format.json { render :show, status: :created, location: @juntum }
+        flash[:success] = "Junta creada"
       else
         format.html { render :new }
         format.json { render json: @juntum.errors, status: :unprocessable_entity }
+        flash[:danger] = "Error al crear la junta"
       end
     end
   end
@@ -52,9 +54,11 @@ class JuntaController < ApplicationController
       if @juntum.update(juntum_params)
         format.html { redirect_to @juntum, notice: 'Juntum was successfully updated.' }
         format.json { render :show, status: :ok, location: @juntum }
+        flash[:success] = "Junta actualizada"
       else
         format.html { render :edit }
         format.json { render json: @juntum.errors, status: :unprocessable_entity }
+        flash[:danger] = "Error al actualizar la junta"
       end
     end
   end
@@ -66,6 +70,7 @@ class JuntaController < ApplicationController
     respond_to do |format|
       format.html { redirect_to junta_url, notice: 'Juntum was successfully destroyed.' }
       format.json { head :no_content }
+      flash[:success] = "Junta eliminada"
     end
   end
 

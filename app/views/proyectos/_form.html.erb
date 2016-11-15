@@ -1,7 +1,7 @@
 <%= form_for(proyecto) do |f| %>
     <% if proyecto.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+          <h2><%= pluralize(proyecto.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
           <ul>
             <% proyecto.errors.full_messages.each do |message| %>
@@ -41,7 +41,7 @@
               </div>
 
               <div class="actions">
-                <%= f.submit("Crear/Actualizar Proyecto",class:'btn btn-sm btn-success ') %>
+                <%= f.submit("Guardar Proyecto",class:'btn btn-sm btn-success ') %>
                 <%= link_to 'Regresar', proyectos_path,class:'btn btn-sm btn-danger ' %>
               </div>
             </form>
