@@ -1,2 +1,0 @@
-class UsuarioJuntum < ApplicationRecord
-end

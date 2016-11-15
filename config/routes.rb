@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :juntum_usuarios
   resources :usuario_proyectos
+  resources :usuario_junta
   resources :actividads
   resources :proyectos
   resources :junta

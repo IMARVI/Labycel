@@ -1,1 +1,0 @@
-json.partial! "usuario_junta/usuario_juntum", usuario_juntum: @usuario_juntum
