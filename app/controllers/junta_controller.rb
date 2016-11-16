@@ -6,7 +6,6 @@ class JuntaController < ApplicationController
   # GET /junta.json
   def admin?
     if current_user.read_attribute(:permiso) != 1
-      flash[:danger] = "No tienes persmisos de administrador"
       redirect_to mostrar_juntas_path
     end
   end

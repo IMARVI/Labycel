@@ -6,7 +6,6 @@ class ProyectosController < ApplicationController
   # GET /proyectos.json
   def admin?
     if current_user.read_attribute(:permiso) != 1
-      flash[:danger] = "No tienes persmisos de administrador"
       redirect_to current_user
     end
   end
@@ -52,7 +51,7 @@ class ProyectosController < ApplicationController
   def update
     respond_to do |format|
       if @proyecto.update(proyecto_params)
-        format.html { redirect_to @proyecto, notice: 'Proyecto was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Proyecto was successfully updated.' }
         format.json { render :show, status: :ok, location: @proyecto }
         flash[:success] = "Proyecto actualizado"
 
