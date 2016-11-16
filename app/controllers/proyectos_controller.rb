@@ -17,6 +17,8 @@ class ProyectosController < ApplicationController
   # GET /proyectos/1
   # GET /proyectos/1.json
   def show
+    @proyecto = Proyecto.find(params[:id])
+    @proyecto_actividades = @proyecto.actividads
   end
 
   # GET /proyectos/new
