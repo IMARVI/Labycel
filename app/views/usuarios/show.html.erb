@@ -4,7 +4,9 @@
   </div>
   <div class="jumbotron">
 
-    <% @usuario_proyectos.each do |proyecto| %>
+    <% @usuario_proyectos.each do |proyecto|
+      @proy = UsuarioProyecto.where(:proyecto_id=>proyecto.id)
+    %>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
@@ -14,6 +16,11 @@
               <div class="userInfo">
                 <p><strong>Fecha de Inicio:</strong> <%= proyecto.fecha_inicio %></p>
                 <p><strong>Fecha de fin:</strong> <%= proyecto.fecha_final %></p>
+                <% @proy.each do |usuarios|
+                  usr = Usuario.where(:id => usuarios.usuario_id)
+                %>
+                    <p> <%=usr[0].read_attribute(:nombre)%></p>
+                <%end%>
 
               </div>
               <div class="btn-group acciones" role="group" aria-label="...">

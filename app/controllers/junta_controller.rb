@@ -51,7 +51,7 @@ class JuntaController < ApplicationController
   def update
     respond_to do |format|
       if @juntum.update(juntum_params)
-        format.html { redirect_to @juntum, notice: 'Juntum was successfully updated.' }
+        format.html { redirect_to action: "index", notice: 'Juntum was successfully updated.' }
         format.json { render :show, status: :ok, location: @juntum }
         flash[:success] = "Junta actualizada"
       else

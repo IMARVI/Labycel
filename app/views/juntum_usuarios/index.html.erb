@@ -4,7 +4,9 @@
   </div>
   <div class="jumbotron">
 
-    <% @usuario_juntas.each do |juntum| %>
+    <% @usuario_juntas.each do |juntum|
+    @participantes = JuntumUsuario.where(:juntum_id =>juntum.id)
+    %>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
@@ -14,10 +16,15 @@
               <div class="userInfo">
                 <p><strong>Fecha:</strong> <%= juntum.fecha %></p>
                 <p><strong>Descripción:</strong> <%= juntum.descripcion %></p>
-
+                <p><strong>Participantes:</strong>
+                 <% @participantes.each do |usuarios|
+                  usr = Usuario.where(:id => usuarios.usuario_id)
+                 %>
+                      <p> <%=usr[0].read_attribute(:nombre)%></p>
+                  <%end%>
               </div>
               <div class="btn-group acciones" role="group" aria-label="...">
-                <%= link_to 'Detalles', juntum_path(juntum), class:"btn btn-sm btn-warning" %>
+                <!--<%= link_to 'Detalles', juntum_path(juntum), class:"btn btn-sm btn-warning" %>-->
                 <%= link_to 'Editar', edit_juntum_path(juntum), class:"btn btn-sm btn-primary" %>
                 <%= link_to 'Eliminar', juntum, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
               </div>

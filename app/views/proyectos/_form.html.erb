@@ -35,8 +35,13 @@
 
               <div style="margin-bottom: 20px" class="input-group">
                 <% @usuarios.each do |usuario| %>
-                    <%= check_box_tag 'proyecto[usuario_ids][]', usuario.id, @proyecto.usuario_ids.include?(usuario.id), id: dom_id(usuario)%>
-                    <%= label_tag dom_id(usuario),(usuario.nombre) %>
+                    <% if usuario.id == current_user.id %>
+                        <%= check_box_tag 'proyecto[usuario_ids][]', usuario.id, @proyecto.usuario_ids.include?(usuario.id), id: dom_id(usuario), checked: true%>
+                        <%= label_tag dom_id(usuario),(usuario.nombre) %>
+                    <% else %>
+                      <%= check_box_tag 'proyecto[usuario_ids][]', usuario.id, @proyecto.usuario_ids.include?(usuario.id), id: dom_id(usuario)%>
+                      <%= label_tag dom_id(usuario),(usuario.nombre) %>
+                    <%end%>
                 <% end %>
               </div>
 

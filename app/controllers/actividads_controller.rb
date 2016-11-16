@@ -29,8 +29,9 @@ class ActividadsController < ApplicationController
     @actividad = Actividad.new(actividad_params)
     respond_to do |format|
       if @actividad.save
-        format.html { redirect_to @actividad, notice: 'Actividad was successfully created.' }
+        format.html { redirect_to proyectos_path, notice: 'Actividad was successfully created.' }
         format.json { render :show, status: :created, location: @actividad }
+        flash[:success] = "Actividad creada"
       else
         format.html { render :new }
         format.json { render json: @actividad.errors, status: :unprocessable_entity }
@@ -43,8 +44,9 @@ class ActividadsController < ApplicationController
   def update
     respond_to do |format|
       if @actividad.update(actividad_params)
-        format.html { redirect_to @actividad, notice: 'Actividad was successfully updated.' }
+        format.html { redirect_to current_user , notice: 'Actividad was successfully updated.' }
         format.json { render :show, status: :ok, location: @actividad }
+        flash[:success] = "Actividad actualizada"
       else
         format.html { render :edit }
         format.json { render json: @actividad.errors, status: :unprocessable_entity }
