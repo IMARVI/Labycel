@@ -19,6 +19,7 @@ class ProyectosController < ApplicationController
   def show
     @proyecto = Proyecto.find(params[:id])
     @proyecto_actividades = @proyecto.actividads
+    @proyecto_usuarios = @proyecto.usuarios
   end
 
   # GET /proyectos/new

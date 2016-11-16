@@ -5,6 +5,7 @@
   <div class="jumbotron">
 
     <% @proyectos.each do |proyecto|
+      @proy = UsuarioProyecto.where(:proyecto_id=>proyecto.id)
     %>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
@@ -15,17 +16,22 @@
               <div class="userInfo">
                 <p><strong>Fecha de Inicio:</strong> <%= proyecto.fecha_inicio %></p>
                 <p><strong>Fecha de fin:</strong> <%= proyecto.fecha_final %></p>
-
-              </div>
-              <div class="btn-group acciones" role="group" aria-label="...">
-                <%= link_to 'Editar', edit_proyecto_path(proyecto), class:"btn btn-sm btn-primary" %>
-                <%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
-                <%= link_to 'Agregar Actividad', {:controller => "actividads", :action => "new", :proyecto_id => proyecto.id}, class:"btn btn-sm btn-success" %>
-                <%= link_to 'Mostrar Actividades', proyecto, class:"btn btn-sm btn-warning" %>
+                <p><strong>Usuarios: </strong>
+                  <% @proy.each do |usuarios|
+                    usr = Usuario.where(:id => usuarios.usuario_id)
+                  %>
+                      <%=usr[0].read_attribute(:nombre)+"                ·"%>
+                  <%end%>
+                </p>
+                <div class="btn-group acciones" role="group" aria-label="...">
+                  <%= link_to 'Editar', edit_proyecto_path(proyecto), class:"btn btn-sm btn-primary" %>
+                  <%= link_to 'Eliminar', proyecto, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %>
+                  <%= link_to 'Agregar Actividad', {:controller => "actividads", :action => "new", :proyecto_id => proyecto.id}, class:"btn btn-sm btn-success" %>
+                  <%= link_to 'Mostrar detalles', proyecto, class:"btn btn-sm btn-warning" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
     <% end %>
 
     <br>

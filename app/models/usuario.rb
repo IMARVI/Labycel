@@ -1,5 +1,5 @@
 class Usuario < ApplicationRecord
-
+  before_destroy
   validates_presence_of :nombre
   validates_presence_of :contraseña
 
@@ -7,7 +7,7 @@ class Usuario < ApplicationRecord
   has_many :junta, through: :juntum_usuarios
 
   has_many :usuario_proyectos
-  has_many :proyectos, through: :usuario_proyectos
+  has_many :proyectos, through: :usuario_proyectos, dependent: :destroy
 
   has_many :actividads_usuarios
   has_many :actividads, through: :actividads_usuarios
