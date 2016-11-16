@@ -15,6 +15,7 @@ class ActividadsController < ApplicationController
   # GET /actividads/new
   def new
     @actividad = Actividad.new
+    @actividad.proyecto = Proyecto.find(params[:proyecto_id])
   end
 
   # GET /actividads/1/edit
@@ -24,8 +25,8 @@ class ActividadsController < ApplicationController
   # POST /actividads
   # POST /actividads.json
   def create
-    @actividad = Actividad.new(actividad_params)
 
+    @actividad = Actividad.new(actividad_params)
     respond_to do |format|
       if @actividad.save
         format.html { redirect_to @actividad, notice: 'Actividad was successfully created.' }
@@ -69,6 +70,6 @@ class ActividadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def actividad_params
-      params.require(:actividad).permit(:nombre, :descripcion, :estatus, :fecha_inicio, :fecha_final)
+      params.require(:actividad).permit(:nombre, :descripcion, :estatus, :fecha_inicio, :fecha_final, :proyecto_id)
     end
 end
