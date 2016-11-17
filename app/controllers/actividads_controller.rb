@@ -29,7 +29,7 @@ class ActividadsController < ApplicationController
     @actividad = Actividad.new(actividad_params)
     respond_to do |format|
       if @actividad.save
-        format.html { redirect_to proyectos_path, notice: 'Actividad was successfully created.' }
+        format.html { redirect_to proyecto_path(:id => @actividad.proyecto.id), notice: 'Actividad was successfully created.' }
         format.json { render :show, status: :created, location: @actividad }
         flash[:success] = "Actividad creada"
       else
@@ -44,7 +44,7 @@ class ActividadsController < ApplicationController
   def update
     respond_to do |format|
       if @actividad.update(actividad_params)
-        format.html { redirect_to current_user , notice: 'Actividad was successfully updated.' }
+        format.html { redirect_to proyecto_path(:id => @actividad.proyecto.id) , notice: 'Actividad was successfully updated.' }
         format.json { render :show, status: :ok, location: @actividad }
         flash[:success] = "Actividad actualizada"
       else
@@ -59,7 +59,7 @@ class ActividadsController < ApplicationController
   def destroy
     @actividad.destroy
     respond_to do |format|
-      format.html { redirect_to actividads_url, notice: 'Actividad was successfully destroyed.' }
+      format.html { redirect_to proyecto_path(:id => @actividad.proyecto.id), notice: 'Actividad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

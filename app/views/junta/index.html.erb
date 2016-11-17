@@ -4,7 +4,9 @@
   </div>
   <div class="jumbotron">
 
-    <% @junta.each do |juntum| %>
+    <% @junta.each do |juntum|
+      @junta = JuntumUsuario.where(:juntum_id=>juntum.id)
+    %>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
@@ -14,6 +16,13 @@
               <div class="userInfo">
                     <p><strong>Fecha:</strong> <%= juntum.fecha %></p>
                     <p><strong>Descripción:</strong> <%= juntum.descripcion %></p>
+                    <p><strong>Usuarios: </strong>
+                      <% @junta.each do |usuarios|
+                          usr = Usuario.where(:id => usuarios.usuario_id)
+                      %>
+                          <%=usr[0].read_attribute(:nombre)+"                ·"%>
+                  <%end%>
+                </p>
 
               </div>
               <div class="btn-group acciones" role="group" aria-label="...">
