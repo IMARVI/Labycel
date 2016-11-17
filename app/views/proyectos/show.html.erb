@@ -1,9 +1,12 @@
 <div class="container">
+  <div class="page-header">
+    <h1><%= @proyecto.nombre%></h1>
+  </div>
   <div class="row">
-    <div class="col-xs-6">
-      <div class="page-header">
-        <h1>Actividades de: <%= @proyecto.nombre%></h1>
-      </div>
+    <div class="col-sm-6">
+
+        <h1>Actividades</h1>
+
       <div class="jumbotron">
 
         <% @proyecto_actividades.each do |actividad| %>
@@ -32,13 +35,16 @@
               </div>
             </div>
         <% end %>
+        <div class="col-xs-6 col-xs-offset-3">
+          <%= link_to 'Agregar Actividad', {:controller => "actividads", :action => "new", :proyecto_id => @proyecto.id}, class:"btn btn-sm btn-success" %>
+        </div>
 
       </div>
     </div>
-    <div class="col-xs-6">
-      <div class="page-header">
-        <h1>Usuarios de: <%= @proyecto.nombre%></h1>
-      </div>
+    <div class="col-sm-6">
+
+        <h1>Usuarios</h1>
+
       <div class="jumbotron">
 
         <% @proyecto_usuarios.each do |usuario| %>
